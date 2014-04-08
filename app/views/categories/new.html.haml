@@ -1,0 +1,12 @@
+.container
+  .form_container
+    %h1 New Category
+    .row
+      .col-md-8
+        = form_for(@category, :role => 'form') do |f|
+          .form-group
+            = f.label 'Category name'
+          .form-group
+            = f.text_field :name, :placeholder => 'Category name', :class=>'form-control'
+          .form-group
+            = f.submit 'Create', :type => 'submit', :class => 'btn btn-success'

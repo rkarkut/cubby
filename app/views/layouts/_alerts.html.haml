@@ -1,0 +1,9 @@
+- if flash[:alert]
+  %div{:style=>'padding-top: 30px'}
+    .alert.alert-danger
+      = flash[:alert]
+
+- if flash[:notice]
+  %div{:style=>'padding-top: 30px'}
+    .alert.alert-success
+      = flash[:notice]

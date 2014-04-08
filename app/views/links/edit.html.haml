@@ -1,0 +1,22 @@
+.container
+  .form_container.row
+    .col-md-8
+      %h1 Edit link
+      = form_for (@link) do |f|
+        .form-group
+          = f.label 'URL'
+          = f.text_field :url, :placeholder => 'URL', :class => 'form-control'
+          %button{:type=>"button", :class=>"btn btn-info", :id=>'load_link_details', remote: true}
+            Load
+        .form-group
+          = f.label 'Title'
+        .form-group
+          = f.text_field :title, :placeholder => 'Title', :class => 'form-control'
+        .form-group
+          = f.label 'Description'
+          = f.text_area :description, :class => 'form-control', :rows => '6'
+        .form-group
+          = f.select :category_id, @categories.collect {|q| [q.name, q.id]}, {:selected => @link.category_id}, :class => 'form-control'
+
+        .form-group
+          = f.submit 'Save link', :class => 'btn btn-success'

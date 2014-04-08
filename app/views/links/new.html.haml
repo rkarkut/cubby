@@ -1,0 +1,20 @@
+.container
+  .form_container.row
+    .col-md-8
+      %h1 Create new link 
+      = form_for @link, :url => links_path(:category => @category.id) do |f|
+        .form-group
+          = f.label 'URL'
+          = f.text_field :url, :placeholder => 'URL', :class => 'form-control'
+        .form-group
+          = f.label 'Title'
+        .form-group
+          = f.text_field :title, :placeholder => 'Title', :class => 'form-control'
+        .form-group
+          = f.label 'Description'
+          = f.text_area :description, :class => 'form-control', :rows => '6'
+        .form-group
+          = f.select :category_id, @categories.collect {|q| [q.name, q.id]}, {:selected => @category.id}, :class => 'form-control'
+
+        .form-group
+          = f.submit 'Add link', :class => 'btn btn-success'

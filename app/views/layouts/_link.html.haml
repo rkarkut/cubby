@@ -1,0 +1,14 @@
+.link
+  = link_to link do
+    %div
+      = link.title
+      %div.desc
+        = link.description
+      %div.stats.row
+        .col-md-1
+          Stars
+        .col-md-10
+        .col-md-1
+          %button.btn.btn-info
+            %span.glyphicon.glyphicon-log-in
+            = link.counter
