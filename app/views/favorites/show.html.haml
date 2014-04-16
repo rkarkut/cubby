@@ -1,0 +1,9 @@
+%h1 Favorites links
+- if @links.empty? == false
+  -@links.each do |link|
+    = render :partial => 'layouts/link', locals: {link: link}
+
+  = will_paginate(@links)
+  .clear
+- else
+  .alert.alert-warning Not found

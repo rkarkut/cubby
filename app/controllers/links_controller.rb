@@ -1,5 +1,9 @@
 class LinksController < ApplicationController
 
+  before_filter :authenticate_user! 
+  before_filter :get_last_links
+  before_filter :get_favorites_links
+
   def show
 
     link = Link.find_by_id(params[:id])

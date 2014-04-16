@@ -1,61 +1,9 @@
-#headerwrap
-  .container
-    .row.centered
-      .col-lg-8.col-lg-offset-2
-        %h1
-          All Your links
-          %br/
-          %b in one 
-          %br/
-          place...
-    / row
-  / container
-/ headerwrap
-.container.w
-  .row.centered
-    %br/
-    %br/
-    .col-lg-4
-      %i.fa.fa-heart
-      %h4 Categories
-      %p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.
-    / col-lg-4
-    .col-lg-4
-      %i.fa.fa-laptop
-      %h4 Tags
-      %p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.
-    / col-lg-4
-    .col-lg-4
-      %i.fa.fa-trophy
-      %h4 Easy management
-      %p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.
-    / col-lg-4
-  / row
-  %br/
-  %br/
-/ container
-/ PORTFOLIO SECTION
-#dg
-  .container
-    %h4 LATEST LINKS
-    .links
-      .row.centered
-        .col-md-12
-          - if @links.empty? == false
-            .links-box
-              -@links.each do |link|
-                = render :partial => 'layouts/link', locals: {link: link}
-          - else
-            .alert.alert-warning Not found
-      
-    / row
-  / container
-/ DG
-#r
-  .container
-    .row.centered
-      .col-lg-8.col-lg-offset-2
-        %h4 WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.
-        %p We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.
-    / row
-  / container
+%h1 Latests links
+- if @links.empty? == false
+  -@links.each do |link|
+    = render :partial => 'layouts/link', locals: {link: link}
+
+  = will_paginate(@links)
+  .clear
+- else
+  .alert.alert-warning Not found

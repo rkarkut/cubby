@@ -3,7 +3,75 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require bootstrap
- *= require font-awesome.min
- *= require main
+ *= require bootstrap.min
+ *= require orbit
+ *= require reset
+ *= require responsive
+ *= require style
+ *= require superfish
 */
+
+#header-nav-container .logo {
+  font-size: 2em;
+  padding: 0.3em;
+  width: 200px;
+  color: #fff;
+  display: inline-block;
+  height: 52px;
+}
+
+.widget-container .searchform #s {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.categories-edit, .links-edit {
+  display: none;
+}
+
+.navbar-inverse {
+  background-color: #343434!important;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination span, .pagination a {
+  padding: 0.5em;
+  background-color: #343434;
+  color: #fff;
+  display: inline-block;
+  border-radius: 0.2em;
+}
+
+.pagination em {
+  padding: 0.5em;
+  background-color: #fff;
+  color: #343434;
+  border-radius: 0.2em;
+  display: inline-block;
+}
+
+.pagination span.gap {
+  background:none;
+  color: #000;
+}
+
+
+
+
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }

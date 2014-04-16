@@ -3,76 +3,58 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}/
     %meta{content: "", name: "description"}/
     %meta{content: "", name: "author"}/
     %title SPOT - Free Bootstrap 3 Theme
     / Bootstrap core CSS
     = stylesheet_link_tag 'application'
+    = stylesheet_link_tag '/font-awsome/css/font-awesome'
     = csrf_meta_tags
-    / Custom styles for this template
-
-    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    /[if lt IE 9]
-
-      = javascript_include_tag 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
-      = javascript_include_tag 'https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js'
-  %body
-    / Fixed navbar
-    .navbar.navbar-inverse.navbar-fixed-top
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to 'CUBBY', root_path, class: 'navbar-brand'
-
-        = render :partial => 'layouts/menu'
-    #site
-      = render :partial => 'layouts/alerts'
-        
-      = yield
-
-    / FOOTER
-    #f
-      .container
-        .row.centered
-          %span
-            Copyright 2014 by
-            = link_to 'rkarkut', 'http://rkarkut.pl'
-
-        / row
-      / container
-    / Footer
-    / MODAL FOR CONTACT
-    / Modal
-    #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-      .modal-dialog
-        .modal-content
-          .modal-header
-            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            %h4#myModalLabel.modal-title contact us
-          .modal-body
-            .row.centered
-              %p We are available 24/7, so don't hesitate to contact us.
-              %p
-                Somestreet Ave, 987
-                %br/
-                London, UK.
-                %br/
-                +44 8948-4343
-                %br/
-                hi@blacktie.co
-              #mapwrap
-                %iframe{frameborder: "0", height: "300", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://www.google.es/maps?t=m&ie=UTF8&ll=52.752693,22.791016&spn=67.34552,156.972656&z=2&output=embed", width: "100%"}
-          .modal-footer
-            %button.btn.btn-danger{"data-dismiss" => "modal", type: "button"} Save & Go
-        / /.modal-content
-      / /.modal-dialog
-    / /.modal
-    /
-      Bootstrap core JavaScript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
     = javascript_include_tag 'application'
+  %body.home.blog
+  / Start Header
+  .container
+    .row
+      = render :partial => 'layouts/header'
+      -# .col-md-12
+      -#   #header-nav-container
+      -#     .row
+      -#       .col-md-4
+      -#         .wrap-col
+      -#           = link_to 'Cubby', root_path, {:class => 'logo'}
+      -#       .col-md-8
+      -#         = render :partial => 'layouts/menu'
+    .clear
+    .spacing-30
+    / End Header
+    / Start Featured Carousel
+    / Start Main Container
+    .row
+      .col-md-12
+        = render :partial => 'layouts/alerts'
+
+      - if user_signed_in?
+        .col-md-8
+          #post-container
+            .wrap-col
+              = yield
+      - else
+        .col-md-12
+          #post-container
+            .wrap-col
+              = yield
+
+      - if user_signed_in?
+        = render :partial => 'layouts/right_bar'
+      
+    .clear
+    / End Main Container
+    / Start Footer
+    .spacing-30
+    .row
+      .col-md-12
+        #footer-container.col-full
+          .wrap-col
+            %p Copyrigh © 2013 Cubby. All Rights Reserved.
+            .clear

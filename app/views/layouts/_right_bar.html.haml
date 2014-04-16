@@ -1,0 +1,38 @@
+.col-md-4
+  .wrap-col
+    .widget-container
+      %form#searchform.searchform{action: "http://demo.themesmarts.com/euclid/", method: "get", role: "search"}
+        %div
+          %label.screen-reader-text{for: "s"} Search for:
+          %input#s{name: "s", type: "text", value: ""}/
+          %input#searchsubmit{type: "submit", value: "Search"}/
+      .clear
+    .widget-container
+      %h6.widget-title Favorites links
+      - if @favorites_links.empty? == false
+        %ul.widget-recent-posts
+          - @favorites_links.each do |link|
+            %li
+              .post-image
+                .post-mask
+              %h6
+                = link_to link.title, link
+              %span 
+                = link.created_at
+              .clear
+      .clear
+    .widget-container
+      %h6.widget-title Latest Posts
+      - if @latests_links.empty? == false
+        %ul.widget-recent-posts
+          - @latests_links.each do |link|
+            %li
+              .post-image
+                .post-mask
+              %h6
+                = link_to link.title, link
+              %span 
+                = link.created_at
+              .clear
+      .clear
+    .clear

@@ -1,14 +1,22 @@
-.link
-  = link_to link do
-    %div
-      = link.title
-      %div.desc
-        = link.description
-      %div.stats.row
-        .col-md-1
-          Stars
-        .col-md-10
-        .col-md-1
-          %button.btn.btn-info
-            %span.glyphicon.glyphicon-log-in
-            = link.counter
+.post
+  .post-margin
+    %h4.post-title
+      = link_to link.title, link, {:target => '_blank'}
+    %ul.post-status
+      %li
+        %i.fa.fa-clock-o>
+        = link.created_at.strftime("%d %B %Y")
+      %li
+        %i.fa.fa-hand-o-up>
+        = link.counter
+
+    .clear
+  .post-description
+    %p
+      = link.description
+  %ul.post-social
+    %li
+      = link_to link, {:class => 'readmore', :target => '_blank'} do
+        Open
+        %i.fa.fa-arrow-circle-o-right
+  .clear

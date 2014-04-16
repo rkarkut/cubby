@@ -1,12 +1,12 @@
 class IndexController < ApplicationController
 
+  before_filter :authenticate_user! 
+  before_filter :get_last_links
+  before_filter :get_favorites_links
+
   def index
 
-    @links = Link.last(10)
-  end
-
-  def index2
-
+    @links = Link.paginate(:page => params[:page], :per_page => 10).where(:user_id => current_user.id).order('created_at DESC')
   end
 
   def getDetails

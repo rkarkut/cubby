@@ -4,7 +4,7 @@ CubbyApp::Application.routes.draw do
   resources :links
   resources :profiles
   resources :contact
-
+  resources :favorites
 
   devise_for :users
 

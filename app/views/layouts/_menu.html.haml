@@ -1,12 +1,9 @@
-.navbar-collapse.collapse
-  %ul.nav.navbar-nav.navbar-right
-    - if user_signed_in? == false
-      %li.active
-        = link_to 'Login', new_user_session_path
-    - else
-      %li
-        = link_to 'Categories', categories_path
-      %li
-        = link_to 'Add link', new_link_path
-      %li
-        = link_to 'Logout', destroy_user_session_path
+/ Navigation Menu
+%ul.sf-menu
+  - if user_signed_in? == true
+    %li.menu-item
+      = link_to 'Categories', categories_path
+    %li.menu-item
+      = link_to 'Add link', new_link_path
+    %li.menu-item
+      = link_to 'Logout', destroy_user_session_path

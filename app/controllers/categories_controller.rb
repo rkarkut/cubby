@@ -1,10 +1,15 @@
 class CategoriesController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! 
+  before_filter :get_last_links
+  before_filter :get_favorites_links
   
   def index
 
-    @categories = Category.find_all_by_user_id(current_user.id)
+    # @categories = Category.find_all_by_user_id(current_user.id)
+    @categories = Category.where(:user_id => current_user.id).paginate(:page => params['page'], :per_page => 10).order('name ASC')
+
+
   end
 
   def destroy

@@ -1,39 +1,50 @@
-.container
-  = link_to 'Edit categories', '#', style: 'float:right; margin-left: 0.5em', class: 'btn btn-warning', id: 'edit-categories'
+= link_to 'Edit categories', '#', style: 'float:right; margin-left: 0.5em', class: 'btn btn-warning', id: 'edit-categories'
 
-  = link_to 'Add new category', new_category_path, role: 'button', style: 'float: right;', class: 'btn btn-primary'
-    
-  %h1 Categories
-  .categories
-    .row
-      .col-md-12
-      - if @categories.empty? == false
-        - @categories.each do |category|
-          .col-sm-4
-            .media
-              = link_to (category), :class=>'row category-box' do
-                .media-img.pull-left.col-sm-5.col-md-4
-                  = image_tag('folder_icon.png', :class=>'category-img img-responsive img-rounded')
-                .media-body.col-sm-7.col-md-8  
-                  %h3
-                    = category.name
-                  %p.count 
-                    Articles:
-                    %b
-                      = category.links.count
-      - else
-        %div.alert.alert-warning 
-          Not found
+= link_to 'Add new category', new_category_path, role: 'button', style: 'float: right;', class: 'btn btn-primary'
+  
+%h1 Categories
+.categories
+  - if @categories.empty? == false
+    - @categories.each do |category|
+      .post
+        .post-margin
+          %h4.post-title
+            = link_to category.name, category
+          %ul.post-status
+            %li
+              %i.fa.fa-clock-o>
+              Amount of links:
+              = category.links.count
+          .clear
+        %ul.post-social
+          %li
+            = link_to category, {:class => 'readmore'} do
+              Open
+              %i.fa.fa-arrow-circle-o-right
+        .clear
+    = will_paginate @categories
 
-  .categories-edit
-    .row
-      .col-md-12
-        - @categories.each do |category|
-          .category
-            .row
-              .col-md-10
-                = category.name
-              .col-md-1
-                = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
-              .col-md-1
-                = link_to 'Remove', category, method: 'delete', class: 'btn btn-danger', :confirm => "Are you sure"
+  - else
+    %div.alert.alert-warning 
+      Not found
+
+.categories-edit
+  .post
+    .post-margin
+      .panel.panel-default
+
+        .panel-heading 
+          Edit categories
+        .panel-body
+
+        - if @categories.empty? == false
+          %ul.list-group
+          - @categories.each do |category|
+            %li.list-group-item
+              .row
+                .col-md-8
+                  = category.name
+                .col-md-2
+                  = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
+                .col-md-2
+                  = link_to 'Remove', category, method: 'delete', class: 'btn btn-danger', :confirm => "Are you sure"

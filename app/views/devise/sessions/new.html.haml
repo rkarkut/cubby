@@ -1,17 +1,20 @@
-.container
-  .form_container
+.post
+  .post-margin
     %h1 Sign in
+    
     = form_for(resource, :role => 'form', :as => resource_name, :url => session_path(resource_name)) do |f|
-      .form-group.input-group-lg
+      .form-group
         = f.label :email
+      .form-group
         = f.email_field :email, :autofocus => true, :class=>'form-control'
-      .form-group.input-group-lg
+      .form-group
         = f.label :password
+      .form-group
         = f.password_field :password, :class => 'form-control'
       - if devise_mapping.rememberable?
-        .form-group.input-group-lg
+        .form-group
           = f.check_box :remember_me
           = f.label :remember_me
-      .form-group.input-group-lg
-        = f.submit "Sign in", :type => 'submit', :class => 'btn btn-success btn-lg'
+      .form-group
+        = f.submit "Sign in", :type => 'submit', :class => 'btn btn-success'
     = render "devise/shared/links"
