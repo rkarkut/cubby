@@ -59,6 +59,15 @@
   color: #000;
 }
 
+ul.post-social li a.saved {
+
+  background-color: #398439;
+}
+
+ul.post-social li a.edit {
+
+  background-color: #f0ad4e;
+}
 
 
 

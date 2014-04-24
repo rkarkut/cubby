@@ -9,12 +9,28 @@
       %li
         %i.fa.fa-hand-o-up>
         = link.counter
+      %li
+        %i.fa.fa-bar-chart-o>
+        = link_to link.category.name, link.category
 
     .clear
   .post-description
     %p
       = link.description
   %ul.post-social
+    %li
+      = link_to edit_link_path(link), {:class => 'edit', :target => '_blank'} do
+        Edit
+        %i.fa.fa-edit
+
+    %li
+      = link_to '#', {:class => 'favorite', 'data-id' => link.id} do
+        - if link.favorite == 1
+          Remove from favorites
+        - else
+          Add to favorites
+        %i.fa.fa-heart-o
+        
     %li
       = link_to link, {:class => 'readmore', :target => '_blank'} do
         Open

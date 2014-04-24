@@ -6,8 +6,7 @@
         .form-group
           = f.label 'URL'
           = f.text_field :url, :placeholder => 'URL', :class => 'form-control'
-          %button{:type=>"button", :class=>"btn btn-info", :id=>'load_link_details', remote: true}
-            Load
+
         .form-group
           = f.label 'Title'
         .form-group
@@ -20,3 +19,7 @@
 
         .form-group
           = f.submit 'Save link', :class => 'btn btn-success'
+
+      = form_for(@link, :role => 'form', :method => 'delete') do |f|
+        .form-group
+          = f.submit 'Delete link', :type => 'submit', :class => 'btn btn-danger'

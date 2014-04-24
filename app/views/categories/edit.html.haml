@@ -10,3 +10,7 @@
             = f.text_field :name, :placeholder => 'Category name', :class=>'form-control'
           .form-group
             = f.submit 'Save', :type => 'submit', :class => 'btn btn-success'
+
+        = form_for(@category, :role => 'form', :method => 'delete') do |f|
+          .form-group
+            = f.submit 'Delete category', :type => 'submit', :class => 'btn btn-danger'

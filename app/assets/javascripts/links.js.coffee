@@ -24,3 +24,19 @@ $ ->
       $('div.links').hide();
       $('div.links-edit').show();
       $(this).text('Show links');
+
+  $('.post .favorite').on 'click', ->
+    that = this
+    $.ajax
+      beforeSend: (xhr) ->
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      url: '/favorites'
+      type: 'POST'
+      data: {link_id: $(this).data('id')}
+      success: (data) ->
+        $(that).html data[0].text + ' <span class="i fa fa-star-o"></span>'
+        $(that).addClass 'saved'
+
+      error: ->
+        console.log 'something goes wrong'
+    return false
