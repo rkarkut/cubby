@@ -1,20 +1,33 @@
-.post
-  .post-margin
-    %h1 Sign in
-    
-    = form_for(resource, :role => 'form', :as => resource_name, :url => session_path(resource_name)) do |f|
-      .form-group
-        = f.label :email
-      .form-group
-        = f.email_field :email, :autofocus => true, :class=>'form-control'
-      .form-group
-        = f.label :password
-      .form-group
-        = f.password_field :password, :class => 'form-control'
-      - if devise_mapping.rememberable?
-        .form-group
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .form-group
-        = f.submit "Sign in", :type => 'submit', :class => 'btn btn-success'
-    = render "devise/shared/links"
+.row
+  .col-md-4
+
+  .col-md-4
+
+    .panel.panel-default
+
+      %div.panel-heading 
+        Log In
+      %div.panel-body{:style => 'padding: 25px 20px 10px 20px'}
+
+        = form_for(resource, :role => 'form', :as => resource_name, :url => session_path(resource_name)) do |f|
+          %div.form-group.row
+            
+            %div.col-sm-1.login-icon
+              %span.glyphicon.glyphicon-envelope
+            %div.col-sm-10
+              = f.email_field :email, :autofocus => true, :class=>'form-control', :placeholder=>'Email'
+
+          %div.form-group.row
+            %div.col-sm-1.login-icon
+              %span.glyphicon.glyphicon-lock
+
+            %div.col-sm-10
+              = f.password_field :password, :class => 'form-control', :placeholder=>'Password'
+        
+          %div.form-group.row{:style=>'text-align:center'}
+            = f.submit "Log In", :type => 'submit', :class => 'btn btn-success', :style => 'margin-top: 15px'
+
+          %div.form-group{:style=>'text-align:center'}
+            = render "devise/shared/links"
+  .col-md-4
+

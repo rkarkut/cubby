@@ -1,30 +1,27 @@
 = link_to 'Add new category', new_category_path, role: 'button', style: 'float: right;', class: 'btn btn-primary'
-  
+
 %h1 Categories
 .categories
   - if @categories.empty? == false
-    - @categories.each do |category|
-      .post
-        .post-margin
-          %h4.post-title
-            = link_to category.name, category
-          %ul.post-status
-            %li
-              %i.fa.fa-clock-o>
-              Amount of links:
-              = category.links.count
-          .clear
-        %ul.post-social
-          %li
-            = link_to edit_category_path(category), {:class => 'edit', :target => '_blank'} do
-              Edit
-              %i.fa.fa-edit
-          %li
-            = link_to category, {:class => 'readmore'} do
-              Open
-              %i.fa.fa-arrow-circle-o-right
-        .clear
-    = will_paginate @categories
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.table-header{:style => 'width: 90%'} Name
+          %th.table-header{:style=>'text-align:center'} Options
+
+      %tbody
+        - @categories.each do |category|
+          %tr
+            %td
+              = link_to category.name, category, {'data-toggle'=>'tooltip', 'data-placement'=>'right', 'title'=>'Amount of links: ' + category.links.count.to_s, 'class' => 'record_list_link'}
+            %td{:style=>'text-align:center'}
+              = link_to edit_category_path(category), {:class => 'edit record-list-edit', :target => '_blank'} do
+                %span.glyphicon.glyphicon-edit
+            
+              = link_to category, method: :delete, data: { confirm: 'Are you sure?' } do
+                %span.glyphicon.glyphicon-remove-circle
+
+    =will_paginate @categories
 
   - else
     %div.alert.alert-warning 

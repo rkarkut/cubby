@@ -1,0 +1,60 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %meta{content: "", name: "author"}/
+    %title SPOT - Free Bootstrap 3 Theme
+    / Bootstrap core CSS
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag '/font-awsome/css/font-awesome'
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+  %body.home.blog
+  / Start Header
+  .container
+    .row
+      = render :partial => 'layouts/header'
+      -# .col-md-12
+      -#   #header-nav-container
+      -#     .row
+      -#       .col-md-4
+      -#         .wrap-col
+      -#           = link_to 'Cubby', root_path, {:class => 'logo'}
+      -#       .col-md-8
+      -#         = render :partial => 'layouts/menu'
+    .clear
+    .spacing-30
+    / End Header
+    / Start Featured Carousel
+    / Start Main Container
+    .row
+      .col-md-12
+        = render :partial => 'layouts/alerts'
+
+      - if user_signed_in?
+        .col-md-8
+          #post-container
+            .wrap-col
+              = yield
+      - else
+        .col-md-12
+          #post-container
+            .wrap-col
+              = yield
+
+      - if user_signed_in?
+        = render :partial => 'layouts/right_bar'
+      
+    .clear
+    / End Main Container
+    / Start Footer
+    .spacing-30
+    .row
+      .col-md-12
+        #footer-container.col-full
+          .wrap-col
+            %p Copyrigh © 2013 Cubby. All Rights Reserved.
+            .clear

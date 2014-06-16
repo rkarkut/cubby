@@ -59,7 +59,7 @@ class CategoriesController < ApplicationController
 
   def create
 
-    @category = Category.new(params[:category])
+    @category = Category.new(params[:category][:category_id])
     @category.user_id = current_user.id
 
     if @category.save

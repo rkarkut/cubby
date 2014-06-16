@@ -11,6 +11,7 @@ CubbyApp::Application.routes.draw do
   root :to => 'index#index'
     
   match 'index/index' => 'index#index'
+  get 'latests' => 'index#latests'
   get "index/get-details" => 'index#getDetails'
 
 

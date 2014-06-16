@@ -11,10 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require links
-//= require categories
-//= require twitter/bootstrap/bootstrap-transition
-//= require twitter/bootstrap/bootstrap-alert
-//= require twitter/bootstrap/bootstrap-modal
-//= require twitter/bootstrap/bootstrap-button
-//= require twitter/bootstrap/bootstrap-collapse
+//= require jquery_ujs
+//= require twitter/bootstrap
+//= require index

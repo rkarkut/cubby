@@ -1,0 +1,15 @@
+.panel.panel-success.add_category_box
+  .panel-heading 
+    Add new category
+    %a.box_close{:style => 'float:right', :href => '#'}
+      %span.glyphicon.glyphicon-remove
+      
+  .panel-bode{:style => 'padding: 10px'}
+    
+    = form_for(@new_category) do |c|
+      .form-group
+        = c.text_field :name, :placeholder => 'Name', :class => 'form-control'
+
+      .form-group
+        = c.submit "Add category", :class => 'btn btn-success btn_add_link'
+

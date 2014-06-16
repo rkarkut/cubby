@@ -72,18 +72,9 @@ class LinksController < ApplicationController
 
   def create
 
-    if params[:category].nil?
-
-      @category = Category.new
-    else
-      @category = Category.find(params[:category])
-    end
-
-    @categories = Category.find_all_by_user_id(current_user.id)
-
     @link = Link.new(params[:link])
     @link.user = current_user
-    @link.category = Category.find(params[:link][:category_id])
+    @link.category = Category.find(params[:category][:category_id])
 
     if @link.save
 
@@ -91,7 +82,7 @@ class LinksController < ApplicationController
     else
 
       flash[:alert] = @link.errors.full_messages.first
-      render action: 'new'
+      redirect_to :root
     end
   end
 end

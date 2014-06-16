@@ -4,13 +4,12 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require bootstrap.min
- *= require orbit
- *= require reset
- *= require responsive
- *= require style
- *= require superfish
-*/
-
+ * require orbit
+ * require reset
+ * require responsive
+ * require style
+ * require superfish
+*
 #header-nav-container .logo {
   font-size: 2em;
   padding: 0.3em;
@@ -33,32 +32,6 @@
   background-color: #343434!important;
 }
 
-.pagination {
-  width: 100%;
-  text-align: center;
-}
-
-.pagination span, .pagination a {
-  padding: 0.5em;
-  background-color: #343434;
-  color: #fff;
-  display: inline-block;
-  border-radius: 0.2em;
-}
-
-.pagination em {
-  padding: 0.5em;
-  background-color: #fff;
-  color: #343434;
-  border-radius: 0.2em;
-  display: inline-block;
-}
-
-.pagination span.gap {
-  background:none;
-  color: #000;
-}
-
 ul.post-social li a.saved {
 
   background-color: #398439;
@@ -68,10 +41,110 @@ ul.post-social li a.edit {
 
   background-color: #f0ad4e;
 }
+*/
+
+body {
+    border-top: 2px solid #CC0000;
+}
 
 
+.dropdown-toggle-link {
+  background-color: white!important;
+}
 
+.dropdown-toggle-link :hover{
+  text-decoration: underline!important;
+}
 
+.glyphicon {
+  color: #3d464d;
+}
+
+.container .col-md-10 h3, .container .col-md-10 .table-hover {
+  color: #3d464d;
+}
+
+.container .col-md-10 .list-link-descliption {
+  color: #3d464d;
+  font-size: 12px;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination span, .pagination a {
+  background-color: #fff;
+  border-color: #ddd;
+  color: #428bca;
+  border-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  border-radius: 0.2em;
+  padding: 6px 12px;
+}
+
+.pagination em {
+  padding: 6px 12px;
+  background-color: #fff;
+  color: #343434;
+  border-radius: 0.2em;
+  display: inline-block;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.pagination span.gap {
+  background:none;
+  color: #000;
+}
+
+.container .col-md-10 table .record_list_link, .container table .record_list_link  {
+    color: #000;
+  -o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;              /* don't show excess chars */
+    white-space:nowrap;           /* force single line */
+    width: 600px;                 /* fixed width */
+    display: block;
+}
+
+.container .col-md-10 table .record_list_link:hover {
+    color: #428bca;
+}
+
+.login-icon {
+  display: block;
+  margin: 8px 0 0 0;
+  text-align: right;
+}
+
+.add_link_box, .add_category_box {
+  display: none;
+}
+
+.navbar-nav>li>a {
+    color: #000;
+}
+
+.navbar-brand {
+    color: gray;
+}
+
+.menu-link {
+    color: #3d464d;
+    cursor: pointer;
+}
+
+.table-header {
+    color: #CC0000;
+}
+
+.record-list-edit {
+    margin: 0 5px 0 0;
+}
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
