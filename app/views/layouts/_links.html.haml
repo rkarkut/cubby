@@ -1,0 +1,25 @@
+%table.table.table-hover
+  - if @links.empty? == false
+    - @links.each do |link|
+      %tr
+        %td
+          -#%span.glyphicon.glyphicon-link{:style=>'float:left; padding: 2px 5px 0 0'}
+          = link_to link.title, link, {'data-toggle'=>'tooltip', :target => 'blank', 'data-placement'=>'right', 'title'=>link.description, 'class' => 'record_list_link'}
+        %td
+          = link_to category_path(link.category) do
+            %span.label.label-info
+              = link.category.name
+            
+        %td
+          %span.list-link-descliption
+            = link.created_at.strftime("%d %b. %Y")
+        %td{:style=>'text-align:center'}
+          = link_to edit_link_path(link), {:class => 'edit record-list-edit', :target => '_blank'} do
+            %span.glyphicon.glyphicon-edit
+
+          = link_to link, method: :delete, data: { confirm: 'Are you sure?' } do
+            %span.glyphicon.glyphicon-remove-circle
+  - else
+    .alert.alert-warning Links n ot found
+= will_paginate(@links)
+

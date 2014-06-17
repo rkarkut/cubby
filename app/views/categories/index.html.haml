@@ -1,14 +1,12 @@
-= link_to 'Add new category', new_category_path, role: 'button', style: 'float: right;', class: 'btn btn-primary'
+= link_to new_category_path, {:class=>'menu-link', :style => 'float: right'} do
+  %span.glyphicon.glyphicon-th-large
+  Add new category
 
-%h1 Categories
+
+%h1.header Categories
 .categories
   - if @categories.empty? == false
     %table.table.table-hover
-      %thead
-        %tr
-          %th.table-header{:style => 'width: 90%'} Name
-          %th.table-header{:style=>'text-align:center'} Options
-
       %tbody
         - @categories.each do |category|
           %tr
@@ -25,4 +23,4 @@
 
   - else
     %div.alert.alert-warning 
-      Not found
+      Links not found

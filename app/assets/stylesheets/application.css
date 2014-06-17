@@ -47,6 +47,10 @@ body {
     border-top: 2px solid #CC0000;
 }
 
+h1.header {
+    margin-top: 0;
+}
+
 
 .dropdown-toggle-link {
   background-color: white!important;
@@ -65,7 +69,7 @@ body {
 }
 
 .container .col-md-10 .list-link-descliption {
-  color: #3d464d;
+  color: #666;
   font-size: 12px;
 }
 
@@ -102,7 +106,8 @@ body {
 }
 
 .container .col-md-10 table .record_list_link, .container table .record_list_link  {
-    color: #000;
+    color: #3d464d;
+    font-size: 13px;
   -o-text-overflow: ellipsis;   /* Opera */
     text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
     overflow:hidden;              /* don't show excess chars */

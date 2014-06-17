@@ -41,4 +41,17 @@
                           Logout
 
       = render :partial => 'layouts/alerts'
-      = yield   
+
+      - if user_signed_in?
+        .row
+          .col-md-2
+            = render :partial => 'layouts/left_bar'
+          .col-md-10
+            = render :partial => 'layouts/add_new_link'   
+            = render :partial => 'layouts/add_new_category'   
+
+            = yield
+      - else
+        .row
+          .col-md-12
+            = yield

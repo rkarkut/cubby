@@ -6,7 +6,7 @@
       
   .panel-bode{:style => 'padding: 10px'}
     
-    = form_for(@link) do |f|
+    = form_for(@new_link) do |f|
       .form-group
         -# %input.form-control{:type => 'text', :placeholder => 'URL', :id => 'new_link_url'}
         = f.text_field :url, :placeholder => 'URL', :class => 'form-control', :id => 'new_link_url'
@@ -17,11 +17,9 @@
         -# %textarea.form-control{:placeholder => 'Description', :id => 'new_link_description'}
         = f.text_area :description, :placehoder => 'Description', :id => 'new_link_description', :class => 'form-control', :rows => 5, :value=>"Description"
       .form-group
-
-        = collection_select(:category, :category_id, @categories.all, :id, :name, {}, {:class => 'form-control'})
-
+        - if defined?(@user_categories)
+          = collection_select(:cat, :category_id, @user_categories.all, :id, :name, {}, {:class => 'form-control'})
 
       .form-group
-        -# %button.btn.btn-success.btn_add_link{:type => 'button'} Add link
         = f.submit "Add link", :class => 'btn btn-success btn_add_link'
 

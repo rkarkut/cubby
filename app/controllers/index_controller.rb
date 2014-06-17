@@ -5,8 +5,7 @@ class IndexController < ApplicationController
    #before_filter :get_favorites_links
 
   def index
-
-    @link = Link.new
+      
     @new_category = Category.new
 
     @links = Link.paginate(:page => params[:page], :per_page => 30).where(:user_id => current_user.id).order('created_at DESC')

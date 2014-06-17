@@ -1,14 +1,8 @@
-= link_to 'Add new link', new_link_path(category: @category.id), role: 'button', style: 'float: right; margin-right: 0.5em', class: 'btn btn-primary'
-%br/
-%h1
+-#= link_to 'Add new link', new_link_path(category: @category.id), role: 'button', style: 'float: right; margin-right: 0.5em', class: 'btn btn-primary'
+= link_to new_link_path(category: @category.id), {:class=>'menu-link', :style => 'float: right'} do
+  %span.glyphicon.glyphicon-th-large
+  Add new category
+%h1.header
+  Links in category:
   = @category.name
-  .links
-    .row.centered
-      .col-md-12
-        - if @links.empty? == false
-          .links-box
-            -@links.each do |link|
-              = render :partial => 'layouts/link', locals: {link: link}
-          = will_paginate @links, renderer: BootstrapPagination::Rails
-        - else
-          .alert.alert-warning Not found
+= render :partial => 'layouts/links', :locals => {:links => @links}
