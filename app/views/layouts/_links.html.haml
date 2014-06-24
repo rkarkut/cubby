@@ -6,6 +6,9 @@
           -#%span.glyphicon.glyphicon-link{:style=>'float:left; padding: 2px 5px 0 0'}
           = link_to link.title, link, {'data-toggle'=>'tooltip', :target => 'blank', 'data-placement'=>'right', 'title'=>link.description, 'class' => 'record_list_link'}
         %td
+          %span.glyphicon.glyphicon-hand-up
+          = link.counter
+        %td
           = link_to category_path(link.category) do
             %span.label.label-info
               = link.category.name

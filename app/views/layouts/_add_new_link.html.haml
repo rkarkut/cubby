@@ -18,7 +18,7 @@
         = f.text_area :description, :placehoder => 'Description', :id => 'new_link_description', :class => 'form-control', :rows => 5, :value=>"Description"
       .form-group
         - if defined?(@user_categories)
-          = collection_select(:cat, :category_id, @user_categories.all, :id, :name, {}, {:class => 'form-control'})
+          = collection_select(:cat, :category_id, @user_categories.all, :id, :name, {:selected => params[:id]}, {:class => 'form-control'})
 
       .form-group
         = f.submit "Add link", :class => 'btn btn-success btn_add_link'

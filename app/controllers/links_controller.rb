@@ -74,11 +74,11 @@ class LinksController < ApplicationController
 
     @link = Link.new(params[:link])
     @link.user = current_user
-    @link.category = Category.find(params[:category][:category_id])
+    @link.category = Category.find(params[:cat][:category_id])
 
     if @link.save
 
-      redirect_to new_link_path, notice: 'Link has been saved'
+      redirect_to category_path(@link.category), notice: 'Link has been saved'
     else
 
       flash[:alert] = @link.errors.full_messages.first

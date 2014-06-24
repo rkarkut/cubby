@@ -49,6 +49,14 @@ body {
 
 h1.header {
     margin-top: 0;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+}
+
+h1.header span.link_in {
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 
@@ -106,14 +114,20 @@ h1.header {
 }
 
 .container .col-md-10 table .record_list_link, .container table .record_list_link  {
-    color: #3d464d;
-    font-size: 13px;
+    font-size: 17px;
   -o-text-overflow: ellipsis;   /* Opera */
     text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
     overflow:hidden;              /* don't show excess chars */
     white-space:nowrap;           /* force single line */
     width: 600px;                 /* fixed width */
     display: block;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #686868;
+}
+
+.dropdown-menu>li>a {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #686868;
 }
 
 .container .col-md-10 table .record_list_link:hover {
@@ -131,7 +145,9 @@ h1.header {
 }
 
 .navbar-nav>li>a {
-    color: #000;
+  color: #686868;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
 }
 
 .navbar-brand {
@@ -139,8 +155,9 @@ h1.header {
 }
 
 .menu-link {
-    color: #3d464d;
+    color: #686868;
     cursor: pointer;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .table-header {
@@ -149,6 +166,17 @@ h1.header {
 
 .record-list-edit {
     margin: 0 5px 0 0;
+}
+
+.footer {
+  text-align:center; 
+  margin: 20px 0; 
+  border-top: 1px solid #ddd; 
+  padding-top: 8px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.footer span {
+  font-size: 12px;
 }
 
 /* Extra small devices (phones, less than 768px) */

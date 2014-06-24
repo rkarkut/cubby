@@ -1,8 +1,8 @@
--#= link_to 'Add new link', new_link_path(category: @category.id), role: 'button', style: 'float: right; margin-right: 0.5em', class: 'btn btn-primary'
-= link_to new_link_path(category: @category.id), {:class=>'menu-link', :style => 'float: right'} do
+%a.add_new_link.menu-link{:style=>'float:right'}
   %span.glyphicon.glyphicon-th-large
-  Add new category
+  Add new link
 %h1.header
-  Links in category:
+  %span.link_in
+    Links in category:
   = @category.name
 = render :partial => 'layouts/links', :locals => {:links => @links}

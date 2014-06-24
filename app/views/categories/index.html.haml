@@ -1,7 +1,6 @@
-= link_to new_category_path, {:class=>'menu-link', :style => 'float: right'} do
+%a.add_new_category.menu-link{:style=>'float:right'}
   %span.glyphicon.glyphicon-th-large
-  Add new category
-
+  Add category
 
 %h1.header Categories
 .categories
@@ -12,6 +11,9 @@
           %tr
             %td
               = link_to category.name, category, {'data-toggle'=>'tooltip', 'data-placement'=>'right', 'title'=>'Amount of links: ' + category.links.count.to_s, 'class' => 'record_list_link'}
+            %td
+              Links: 
+              = category.links.length
             %td{:style=>'text-align:center'}
               = link_to edit_category_path(category), {:class => 'edit record-list-edit', :target => '_blank'} do
                 %span.glyphicon.glyphicon-edit

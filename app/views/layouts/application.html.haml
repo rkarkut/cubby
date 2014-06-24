@@ -18,8 +18,7 @@
           .container-fluid
             .navbar-header
               %a.navbar-brand{:href => root_path}
-                %span.glyphicon.glyphicon-paperclip
-                Cubby
+                = image_tag '/img/logo.png'
 
             .collapse.navbar-collapse
               %ul.nav.navbar-nav.navbar-right
@@ -55,3 +54,8 @@
         .row
           .col-md-12
             = yield
+
+      .col-md-12.footer
+        %span
+          Copyright 2014 &copy; 
+          = link_to 'rkarkut.pl', 'http://rkarkut.pl', {:target => '_blank'}
